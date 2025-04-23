@@ -2,6 +2,8 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.hiltAndroid)
+    alias(libs.plugins.kotlinAndroidKsp)
 }
 
 android {
@@ -37,6 +39,9 @@ android {
     buildFeatures {
         compose = true
     }
+    androidResources {
+        noCompress += "Regula/faceSdkResource.dat"
+    }
 }
 
 dependencies {
@@ -56,4 +61,16 @@ dependencies {
     androidTestImplementation(libs.androidx.ui.test.junit4)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
+
+    // Dagger Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+
+    implementation("io.coil-kt:coil-compose:2.4.0")
+
+    implementation("com.regula.face:api:+@aar") {
+        isTransitive = true
+    }
+    //implementation("com.regula.face.core:basic:6.4.860")
+    implementation("com.regula.face.core:match:6.4.862")
 }
