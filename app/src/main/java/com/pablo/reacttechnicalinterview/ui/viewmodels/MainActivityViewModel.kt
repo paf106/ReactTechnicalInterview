@@ -1,16 +1,21 @@
-package com.pablo.reacttechnicalinterview
+package com.pablo.reacttechnicalinterview.ui.viewmodels
 
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.net.Uri
 import androidx.lifecycle.ViewModel
+import com.pablo.reacttechnicalinterview.di.LocalModule
 import com.regula.facesdk.FaceSDK
 import com.regula.facesdk.configuration.FaceCaptureConfiguration
+
+
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
+import javax.inject.Inject
 
 
 data class MainActivityState(
@@ -23,13 +28,14 @@ data class MainActivityState(
     val similarityText: String = "",
 )
 
-class MainActivityViewModel : ViewModel() {
+@HiltViewModel
+class MainActivityViewModel @Inject constructor() : ViewModel() {
 
     private val _uiState = MutableStateFlow(MainActivityState())
     val uiState: StateFlow<MainActivityState> = _uiState.asStateFlow()
 
 
-    fun startSDK(context: Context){
+    fun startSDK(context: Context) {
         FaceSDK.Instance()
             .initialize(context) { status: Boolean, exception: Exception? ->
                 run {
@@ -41,6 +47,7 @@ class MainActivityViewModel : ViewModel() {
                 }
             }
     }
+
     fun stopSDK() {
         FaceSDK.Instance().deinitialize()
     }

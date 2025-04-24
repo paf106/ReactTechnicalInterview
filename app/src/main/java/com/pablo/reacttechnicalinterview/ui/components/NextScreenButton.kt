@@ -1,4 +1,4 @@
-package com.pablo.reacttechnicalinterview
+package com.pablo.reacttechnicalinterview.ui.components
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Row

@@ -23,7 +23,9 @@ android {
 
     buildTypes {
         release {
-            isMinifyEnabled = false
+            isDebuggable = false
+            isMinifyEnabled = true
+            versionNameSuffix = "-release"
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
@@ -66,15 +68,17 @@ dependencies {
     // Dagger Hilt
     implementation(libs.hilt.android)
     ksp(libs.hilt.compiler)
+    implementation(libs.androidx.hilt.navigation.compose)
 
+    // Coil
     implementation(libs.coil.compose)
 
     implementation(libs.androidx.navigation.compose)
     implementation(libs.kotlinx.serialization.json)
 
+    // Regula Face SDK
     implementation("com.regula.face:api:+@aar") {
         isTransitive = true
     }
-    //implementation("com.regula.face.core:basic:6.4.860")
-    implementation("com.regula.face.core:match:6.4.862")
+    implementation(libs.match)
 }

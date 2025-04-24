@@ -1,4 +1,4 @@
-package com.pablo.reacttechnicalinterview
+package com.pablo.reacttechnicalinterview.ui.screens
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -9,9 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.wrapContentSize
 import androidx.compose.foundation.shape.CircleShape
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.ArrowForward
 import androidx.compose.material3.Button
@@ -28,12 +26,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.compose.AsyncImage
+import com.pablo.reacttechnicalinterview.ui.viewmodels.MainActivityViewModel
+import com.pablo.reacttechnicalinterview.ui.components.NextScreenButton
+import com.pablo.reacttechnicalinterview.R
 import com.regula.facesdk.FaceSDK
 import com.regula.facesdk.enums.ImageType
 import com.regula.facesdk.model.MatchFacesImage
